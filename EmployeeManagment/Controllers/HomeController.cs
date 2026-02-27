@@ -11,7 +11,7 @@ using NuGet.Protocol.Core.Types;
 
 namespace EmployeeManagment.Controllers
 {
-    public class HomeController : Controller
+    public class HomeControllerChlef02 : Controller
     {
         private readonly IEmployeeRepository employeeRepository;
 
@@ -108,7 +108,7 @@ namespace EmployeeManagment.Controllers
             return View();
         }
 
-        
+
         public IActionResult Delete(int Id)
         {
             employeeRepository.Delete(Id);
