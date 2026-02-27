@@ -1,0 +1,35 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    ViewBag.Title = "Employee Details";
+    var photoPath = "~/Images/" + Model.Employee.Photopath ?? "avatar.png";
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card " style="width:300px;height:370px">
+            <div class="card-header">
+                <h5>@Model.Employee.Name</h5>
+            </div>
+
+            <div class="card-body text-center" >
+                <img class="card-img-top imageThumbNail" src=@photoPath  asp-append-version=true />
+
+                <h6>Employee ID : @Model.Employee.Id</h6>
+                <h6>Email : @Model.Employee.Email</h6>
+                <h6>Department : @Model.Employee.Department</h6>
+
+            </div>
+            <div class="card-footer text-center d-inline-flex">
+                <a asp-controller="home" asp-action="index" class="btn btn-primary btn-small mr-1">Back</a>
+                <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Employee.Id" class="btn btn-primary btn-small mr-1">
+                    Edit</a>
+                <a asp-controller="home" asp-action="delete" asp-route-id="@Model.Employee.Id" class="btn btn-danger btn-small mr-1">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}

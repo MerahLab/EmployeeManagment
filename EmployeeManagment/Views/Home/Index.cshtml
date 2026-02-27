@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewBag.Title = "Employee List";
+
+}
+<div class="container-fluid">
+    <div class="card-deck  d-flex justify-content-start flex-wrap  ">
+        @foreach (var employee in Model)
+        {
+            var photoPath = "~/Images/" + employee.Photopath ?? "avatar.png";
+
+            <div class="card d-flex justify-content-start  me-1 mt-3 w-auto  float-none " style="max-width: 13rem;">
+
+
+                <div class="card-header">
+                    <h3>@employee.Name</h3>
+                </div>
+
+                <img class="card-img-top imageThumbNail2" src="@photoPath" asp-append-version=true />
+
+                <div class="card-footer text-center d-flex flex-nowrap  float-none">
+
+                    <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id"
+                       class="btn btn-primary btn-small mx-auto">View</a>
+                    <a asp-controller="home" asp-action="edit" asp-route-id="@employee.Id" class="btn btn-primary btn-small mx-auto">Edit</a>
+                    <a asp-controller="home" asp-action="delete" asp-route-id="@employee.Id" class="btn btn-primary btn-small mx-auto">Delete</a>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
